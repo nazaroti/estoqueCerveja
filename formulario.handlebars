@@ -1,0 +1,81 @@
+<header>
+    <h1>ESTOQUE</h1>
+</header>
+<div id="dadosPlanilha"></div>
+<form action="/operacao" method="POST">
+
+    <div class="form-select">
+
+        <div class="labels">
+            <p>Ação:</p>
+            <p>Produto:</p>
+            <p>Copos:</p>
+            <p>Quantidade:</p>
+        </div>
+
+        <div class="select-input">
+
+            <select name="action" class="selecionar" id="select-action" required>
+                <option value="consumo">Consumo</option>
+                <option value="adicionar">Adicionar ao Estoque</option>
+                <option value="chegando">Iniciar Estoque</option>
+            </select>
+
+            <select name="estilo" class="selecionar" id="select-product" required>
+                <option value="Pilsen">Pilsen</option>
+                <option value="Ipa Single Hop">Ipa Single Hop</option>
+                <option value="Amber Lager">Amber Lager</option>
+                <option value="Chopp Vinho">Chopp Vinho</option>
+                <option value="Session Ipa">Session Ipa</option>
+                <option value="Pale Ale">Pale Ale</option>
+                <option value="Dark Lager">Dark Lager</option>
+                <option value="Apa">Apa</option>
+                <option value="California Common">California Common</option>
+                <option value="American Wheat">American Wheat</option>
+                <option value="American IPA">American Ipa</option>
+                <option value="Dry Stout Cacau">Dry Stout Cacau</option>
+            </select>
+
+            <select name="tamanho" class="selecionar" id="select-size" required>
+                <option value="0.3">300ml</option>
+                <option value="0.5">500ml</option>
+                <option value="1">1L</option>
+                <option value="2">2L</option>
+                <option value="50">Barril 50L</option>
+                <option value="30">Barril 30L</option>
+            </select>
+
+            <input name="quant" type="number" class="selecionar" id="quantity" min="0" required>
+        </div>
+    </div>
+    <button type="submit">Enviar</button>
+
+</form>
+
+    <form action="/pesquisar" method="GET">
+        <select name="id" class="selecionar" id="select-id" required>
+            <option value="1">Pilsen</option>
+            <option value="2">Ipa Single Hop</option>
+            <option value="3">Amber Lager</option>
+            <option value="4">Chopp Vinho</option>
+            <option value="5">Session Ipa</option>
+            <option value="6">Pale Ale</option>
+            <option value="7">Dark Lager</option>
+            <option value="8">Apa</option>
+            <option value="9">California Common</option>
+            <option value="10">American Wheat</option>
+            <option value="11">American Ipa</option>
+            <option value="12">Dry Stout Cacau</option>
+            <option value="13">Todas</option>
+
+        </select>
+        <button type="submit">Procurar</button>
+    </form>
+
+{{#each posts}}
+<div class="post">
+    <h1 class="post-title">{{nome}}</h1>
+    <h2 class="post-quantity">{{quantidade}}</h2>
+    <hr class="post-divider">
+</div>
+{{/each}}
